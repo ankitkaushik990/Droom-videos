@@ -6,9 +6,9 @@ POST http://localhost:3000/user/signup
 Content-Type: application/json
 
 {
-  "firstName": "hey",
+  "firstName": "ankit",
   "lastName": "Doe",
-  "email": "2002ankit2002@gmail.com",
+  "email": "ankitkaushik.me2@gmail.com",
   "number": "1234567890"
 }
 
@@ -17,8 +17,8 @@ POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-  "firstName": "hey",
-  "userPassword": "hD2090"
+  "firstName": "ankit",
+  "userPassword": "aDan90"
 }
 
 

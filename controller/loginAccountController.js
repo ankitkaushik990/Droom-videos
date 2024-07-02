@@ -10,10 +10,17 @@ exports.loginAccount = async (req, res) => {
       userPassword
     );
 
+    // Fetch uploaded videos with data
+    const uploadedVideos = await loginService.getUploadedVideosWithData(
+      user._id
+    );
+    console.log("Uploaded videos count:", uploadedVideos.length);
+
     res.status(200).send({
       message: "Login Successful",
       user: user,
       token: token,
+      uploadedVideos: uploadedVideos, // Include uploaded videos in response
     });
   } catch (error) {
     logger.error(error.message);
