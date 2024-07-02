@@ -16,14 +16,14 @@ const uploadVideo = (req, res) => {
 
   try {
     const decodedToken = jwtUtils.verifyToken(token);
-
     const userId = decodedToken.id;
+
     console.log("Decoded Token:", decodedToken);
 
     videoService
       .saveVideo(videoFilePath, videoFileType, title, description, userId)
-      .then((message) => {
-        res.json({ message });
+      .then((result) => {
+        res.json({ message: result.message, video: result.video });
       })
       .catch((error) => {
         res

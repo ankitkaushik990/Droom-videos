@@ -1,5 +1,6 @@
 const fs = require("fs");
 const Video = require("../Model/videoModel");
+const User = require("../Model/userModel");
 
 const saveVideo = (
   videoFilePath,
@@ -25,13 +26,24 @@ const saveVideo = (
 
       newVideo
         .save()
-        .then(() => {
+        .then((savedVideo) => {
+          // Update the User document to include the uploaded video's ID
+          return User.findByIdAndUpdate(
+            userId,
+            { $push: { uploadedVideos: savedVideo._id } },
+            { new: true } // To return the updated document
+          );
+        })
+        .then((updatedUser) => {
           // Optionally delete the file from the server after saving to the database
           fs.unlink(videoFilePath, (err) => {
             if (err) {
               return reject(new Error("Failed to delete temporary video file"));
             }
-            resolve("Video uploaded and saved to database successfully");
+            resolve({
+              message: "Video uploaded and saved to database successfully",
+              video: updatedUser.uploadedVideos.slice(-1)[0], // Get the last uploaded video ID
+            });
           });
         })
         .catch((err) => {

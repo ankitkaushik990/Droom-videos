@@ -35,6 +35,12 @@ const userSchema = new mongoose.Schema({
     maxlength: 450,
     trim: true,
   },
+  uploadedVideos: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Video",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", userSchema);

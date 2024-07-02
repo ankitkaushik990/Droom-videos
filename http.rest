@@ -1,5 +1,6 @@
 @token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODNjMzFlYzAwY2ZjNmZlOTdhZWYzNSIsImZpcnN0TmFtZSI6ImpvaG4iLCJsYXN0TmFtZSI6IkRvZSIsImVtYWlsIjoiMjAwMmFua2l0MjAwMkBnbWFpbC5jb20iLCJudW1iZXIiOiIxMjM0NTY3ODkwIiwiYmlvIjpudWxsLCJpYXQiOjE3MTk5MTk0MzQsImV4cCI6MTcxOTkyMzAzNH0.Tox_-8fnzXGGH4RH0Lgqi8v-6db7GAsz6K8ezHKftbU
 
+
 ### Create Account API
 POST http://localhost:3000/user/signup
 Content-Type: application/json
@@ -16,8 +17,8 @@ POST http://localhost:3000/user/login
 Content-Type: application/json
 
 {
-  "firstName": "Ankit",
-  "userPassword": "ADan90"
+  "firstName": "hey",
+  "userPassword": "hD2090"
 }
 
 
